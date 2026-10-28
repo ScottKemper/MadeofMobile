@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Mobile Collection</title>
+<meta name="description" content="Collect all eight Mobile, Alabama coasters, stamp your digital passport and unlock the Mobile skyline coaster.">
+<meta name="theme-color" content="#17191C">
+<meta property="og:title" content="The Mobile Collection">
+<meta property="og:description" content="Eight stops, eight coasters. Collect them all and the Mobile skyline coaster is yours.">
+<meta property="og:image" content="images/share.jpg">
+<link rel="icon" href="images/mobile-skyline.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Libre+Franklin:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: one phone-width column, centred; bands span the full width on bigger screens. */
+  :root {
+    --ground: #17191C;
+    --panel: #1F2125;
+    --panel-2: #2A2C30;
+    --line: #33363B;
+    --line-2: #4A4D52;
+    --ivory: #EDE4CF;
+    --ivory-2: #E0D4BA;
+    --ink: #1B1A17;
+    --muted: #B8B0A0;
+    --muted-2: #A9A294;
+    --brass: #C9A274;
+    --brass-ink: #7A5A2E;
+    --display: "Cinzel", Georgia, "Times New Roman", serif;
+    --body: "Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--ground);
+    color: var(--ivory);
+    font-family: var(--body);
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--brass); }
+  :focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
+  .wrap {
+    max-width: 480px;
+    margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .top { border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top, 0px); }
+  .top .wrap { display: flex; justify-content: center; padding-block: 18px; }
+  .wordmark { font-family: var(--display); font-weight: 700; font-size: 13px; letter-spacing: 0.22em; color: var(--ivory); text-decoration: none; }
+
+  .sponsors { background: var(--ivory); color: var(--ink); }
+  .sponsors .wrap { padding-block: 18px 20px; display: flex; flex-direction: column; gap: 12px; }
+  .eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+  .sponsors .eyebrow { text-align: center; color: var(--brass-ink); letter-spacing: 0.18em; }
+  .sponsor-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .sponsor {
+    height: 76px; border-radius: 12px; background: #FFFFFF; border: 1px solid #D8CCB0;
+    display: flex; align-items: center; justify-content: center; padding: 10px;
+    font-size: 12px; font-weight: 600; color: #6B6457; text-decoration: none; text-align: center;
+  }
+  .sponsor img { max-height: 100%; width: auto; object-fit: contain; }
+
+  .hero .wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; padding-block: 32px 28px; text-align: center; }
+  .hero .eyebrow { color: var(--brass); font-weight: 600; }
+  .hero-coaster { width: 212px; height: 212px; border-radius: 50%; padding: 5px; background: var(--brass); box-shadow: 0 18px 40px rgba(0,0,0,0.45); }
+  .hero-coaster.plain { background: var(--line); }
+  .hero-coaster > div { width: 100%; height: 100%; border-radius: 50%; padding: 4px; background: var(--ground); }
+  .hero-coaster img { width: 100%; height: 100%; border-radius: 50%; }
+  h1, h2 { font-family: var(--display); font-weight: 700; line-height: 1.2; text-wrap: balance; margin: 0; }
+  h1 { font-size: 28px; }
+  h2 { font-size: 26px; }
+  .lede { margin: 0; color: var(--muted); max-width: 320px; line-height: 1.55; }
+
+  .btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%;
+    min-height: 54px; border-radius: 27px; border: 0; padding: 0 20px;
+    font: 700 16px/1 var(--body); text-decoration: none; cursor: pointer;
+  }
+  .btn-brass { background: var(--brass); color: var(--ink); }
+  .btn-brass[disabled] { background: var(--panel-2); color: var(--muted); cursor: default; }
+  .btn-dark { background: var(--ink); color: var(--ivory); }
+  .btn-ivory { background: var(--ivory); color: var(--ink); min-height: 48px; font-size: 15px; }
+  .btn-line { min-height: 46px; border: 1px solid var(--line-2); background: transparent; color: var(--ivory); font-size: 14px; font-weight: 600; }
+
+  .card { border: 1px solid var(--line); border-radius: 18px; background: var(--panel); padding: 22px 16px; display: flex; flex-direction: column; gap: 16px; }
+  .card-title { font-family: var(--display); font-weight: 700; font-size: 15px; letter-spacing: 0.12em; }
+  .card-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .count { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .progress { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
+  .progress span { height: 6px; border-radius: 3px; background: #3A3D42; }
+  .progress span.on { background: var(--brass); }
+
+  .stops { list-style: none; margin: 0; padding: 4px 0 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px 6px; }
+  .stop { display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; min-width: 0; }
+  .stop-art { position: relative; width: 70px; height: 70px; border-radius: 50%; border: 1.5px solid #3A3D42; padding: 4px; }
+  .stop-art img { width: 100%; height: 100%; border-radius: 50%; filter: grayscale(1); opacity: 0.45; transition: filter .3s, opacity .3s; }
+  .stop.got .stop-art { border: 0; padding: 3px; background: var(--brass); }
+  .stop.got .stop-art > div { width: 100%; height: 100%; border-radius: 50%; padding: 2px; background: var(--panel); }
+  .stop.got .stop-art img { filter: none; opacity: 1; }
+  .check { position: absolute; right: -2px; bottom: -2px; width: 22px; height: 22px; border-radius: 50%; background: var(--brass); border: 2px solid var(--panel); display: none; align-items: center; justify-content: center; }
+  .stop.got .check { display: flex; }
+  .stop-name { font-size: 11px; line-height: 1.3; color: var(--muted-2); overflow-wrap: anywhere; }
+  .stop.got .stop-name { color: var(--ivory); font-weight: 600; }
+  .stop.just .stop-art { box-shadow: 0 0 0 3px var(--ground), 0 0 0 5px var(--brass); }
+
+  .reward { display: flex; align-items: center; gap: 16px; padding: 18px 16px; border-radius: 14px; background: var(--panel-2); border: 1px dashed #6E5A3C; }
+  .reward-art { position: relative; flex: none; width: 96px; height: 96px; border-radius: 50%; border: 1.5px dashed var(--brass); padding: 5px; }
+  .reward-art img { width: 100%; height: 100%; border-radius: 50%; filter: grayscale(1); opacity: 0.4; }
+  .lock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+  .lock div { width: 38px; height: 38px; border-radius: 50%; background: var(--ground); display: flex; align-items: center; justify-content: center; }
+  .reward.unlocked { border-style: solid; border-color: var(--brass); }
+  .reward.unlocked .reward-art { border-style: solid; }
+  .reward.unlocked .reward-art img { filter: none; opacity: 1; }
+  .reward.unlocked .lock { display: none; }
+  .reward-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .reward-text .eyebrow { font-size: 10px; letter-spacing: 0.18em; color: var(--brass); }
+  .reward-name { font-family: var(--display); font-weight: 700; font-size: 18px; line-height: 1.2; }
+  .reward-note { font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+  .keep { margin-top: 16px; gap: 12px; padding: 22px 18px; }
+  .keep p { margin: 0; font-size: 14px; color: var(--muted); }
+  .keep label { font-size: 12px; font-weight: 600; }
+  .keep input { height: 48px; border-radius: 12px; border: 1px solid var(--line-2); background: var(--ground); color: var(--ivory); padding: 0 14px; font: 16px var(--body); width: 100%; }
+  .notice { font-size: 13px; color: var(--muted); margin: 0; }
+  .notice:empty { display: none; }
+
+  .custom { margin-top: 28px; border-radius: 22px; background: var(--ivory); color: var(--ink); padding: 28px 22px; display: flex; flex-direction: column; gap: 14px; }
+  .custom .eyebrow { color: var(--brass-ink); }
+  .custom p { margin: 0; color: #4A443B; line-height: 1.55; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+  .chips li { padding: 7px 12px; border-radius: 14px; background: var(--ivory-2); font-size: 12px; font-weight: 600; }
+  .custom .btn { margin-top: 4px; }
+
+  .foot .wrap { padding-block: 28px calc(28px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .foot .tag { font-family: var(--display); font-weight: 700; font-size: 12px; letter-spacing: 0.2em; color: var(--muted-2); }
+  .foot small { font-size: 12px; color: var(--muted-2); }
+
+  .preview-bar { background: var(--panel-2); color: var(--muted); font-size: 12px; text-align: center; }
+  .preview-bar .wrap { padding-block: 8px; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="preview-bar" id="previewBar" hidden><div class="wrap">Preview mode: stamps aren’t saved until the passport service is connected.</div></div>
+
+<header class="top"><div class="wrap"><a class="wordmark" href="./">THE MOBILE COLLECTION</a></div></header>
+
+<section class="sponsors" aria-label="Presented by"><div class="wrap">
+  <span class="eyebrow">Presented by</span>
+  <div class="sponsor-row" id="sponsors"></div>
+</div></section>
+
+<main>
+  <section class="hero"><div class="wrap">
+    <span class="eyebrow" id="heroEyebrow">Eight stops · Eight coasters</span>
+    <div class="hero-coaster" id="heroRing"><div><img id="heroImg" src="images/mobile-skyline.webp" alt="Mobile skyline coaster" width="380" height="380"></div></div>
+    <h1 id="heroTitle">The Mobile Collection</h1>
+    <p class="lede" id="heroLede">Eight stops, eight coasters, each sold only at its own stop. Collect all eight and the Mobile skyline coaster is yours.</p>
+    <button class="btn btn-brass" id="stampBtn" type="button" hidden>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.6 2.5L16 9.5"/></svg>
+      <span id="stampLabel">Stamp my passport</span>
+    </button>
+  </div></section>
+
+  <div class="wrap">
+    <section class="card" aria-labelledby="passportTitle">
+      <div class="card-head">
+        <span class="card-title" id="passportTitle">YOUR PASSPORT</span>
+        <span class="count" id="count">0 of 8 collected</span>
+      </div>
+      <div class="progress" id="progress" aria-hidden="true"></div>
+      <ul class="stops" id="stops"></ul>
+
+      <div class="reward" id="reward">
+        <div class="reward-art">
+          <img src="images/mobile-skyline.webp" alt="" width="380" height="380">
+          <div class="lock"><div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9A274" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div></div>
+        </div>
+        <div class="reward-text">
+          <span class="eyebrow" id="rewardEyebrow">The reward · Not for sale</span>
+          <span class="reward-name">Mobile Skyline</span>
+          <span class="reward-note" id="rewardNote">Collect all eight to unlock it.</span>
+        </div>
+      </div>
+
+      <a class="btn btn-line" id="mapLink" href="#">See all stops on the map</a>
+    </section>
+
+    <section class="card keep" aria-labelledby="keepTitle" id="keepCard">
+      <span class="card-title" id="keepTitle">KEEP YOUR STAMPS</span>
+      <p>Add your phone number so your passport is saved to your account and follows you to any phone.</p>
+      <form id="phoneForm" novalidate>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <label for="phone">Mobile number</label>
+          <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(251) 555-0142">
+          <label for="code" id="codeLabel" hidden>6-digit code</label>
+          <input id="code" name="code" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" hidden>
+          <button class="btn btn-ivory" id="phoneBtn" type="submit">Text me a sign-in code</button>
+          <p class="notice" id="phoneNotice" role="status"></p>
+        </div>
+      </form>
+    </section>
+
+    <section class="custom" aria-labelledby="customTitle">
+      <span class="eyebrow">For businesses &amp; events</span>
+      <h2 id="customTitle">Put your brand on something people keep.</h2>
+      <p>Custom coasters, engraved desk pieces and live-screen gifts, made in Mobile for your team, your clients and your events.</p>
+      <ul class="chips"><li>Coaster sets</li><li>Client gifts</li><li>Screen displays</li><li>Awards</li></ul>
+      <a class="btn btn-dark" id="customLink" href="#">
+        Explore custom goods
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </section>
+  </div>
+</main>
+
+<footer class="foot"><div class="wrap">
+  <span class="tag">DISCOVER · COLLECT · BELONG</span>
+  <small>Made in Mobile, Alabama</small>
+</div></footer>
+
+<script>
+/* ===================== SETTINGS: edit these ===================== */
+const CONFIG = {
+  customGoodsUrl: "#",        // your custom goods page
+  mapUrl: "#",                // map of all stops
+  sponsors: [                 // logo: path to an image in /images, or "" to show the name
+    { name: "Sponsor 1", url: "#", logo: "" },
+    { name: "Sponsor 2", url: "#", logo: "" },
+    { name: "Sponsor 3", url: "#", logo: "" }
+  ],
+  // Passport service. Leave null to run in preview mode (nothing is saved).
+  // Connect Supabase/Firebase/your own API by filling in these four functions.
+  passport: null
+  /* Example shape:
+  passport: {
+    async load()             { return ["uss-alabama", ...] },   // stop ids this person has
+    async stamp(stopId, code){ return ["uss-alabama", ...] },   // record a scan, return updated list
+    async sendCode(phone)    { },                               // text a sign-in code
+    async verify(phone, code){ return ["uss-alabama", ...] }    // sign in, merge stamps, return list
+  }
+  */
+};
+
+const STOPS = [
+  { id: "uss-alabama",         name: "USS Alabama",         full: "the USS Alabama" },
+  { id: "exploreum",           name: "Exploreum",           full: "the Exploreum" },
+  { id: "history-museum",      name: "History Museum",      full: "the History Museum of Mobile" },
+  { id: "saenger-theatre",     name: "Saenger Theatre",     full: "the Saenger Theatre" },
+  { id: "carnival-museum",     name: "Carnival Museum",     full: "the Mobile Carnival Museum" },
+  { id: "gulfquest",           name: "GulfQuest",           full: "GulfQuest" },
+  { id: "phoenix-fire-museum", name: "Phoenix Fire Museum", full: "the Phoenix Fire Museum" },
+  { id: "richards-dar-house",  name: "Richards DAR House",  full: "the Richards DAR House" }
+];
+/* ================================================================= */
+
+const $ = (id) => document.getElementById(id);
+const params = new URLSearchParams(location.search);
+const scannedId = params.get("stop");        // QR links: https://yoursite/?stop=exploreum&c=UNIQUECODE
+const scanCode = params.get("c") || "";
+const scanned = STOPS.find((s) => s.id === scannedId) || null;
+const api = CONFIG.passport;
+let have = new Set();
+
+const CHECK = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1B1A17" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+function renderSponsors() {
+  $("sponsors").innerHTML = CONFIG.sponsors.map((s) =>
+    `<a class="sponsor" href="${s.url}" rel="noopener">${s.logo ? `<img src="${s.logo}" alt="${s.name}">` : s.name}</a>`
+  ).join("");
+}
+
+function renderStops() {
+  $("stops").innerHTML = STOPS.map((s) => {
+    const got = have.has(s.id);
+    const just = scanned && scanned.id === s.id;
+    return `<li class="stop${got ? " got" : ""}${just ? " just" : ""}">
+      <div class="stop-art"><div><img src="images/${s.id}.webp" alt="" width="380" height="380" loading="lazy"></div><span class="check">${CHECK}</span></div>
+      <span class="stop-name">${s.name}<span class="sr-only">${got ? ", collected" : ", not yet collected"}</span></span>
+    </li>`;
+  }).join("");
+  $("progress").innerHTML = STOPS.map((s, i) => `<span class="${i < have.size ? "on" : ""}"></span>`).join("");
+  $("count").textContent = `${have.size} of ${STOPS.length} collected`;
+
+  const left = STOPS.length - have.size;
+  const unlocked = left === 0;
+  $("reward").classList.toggle("unlocked", unlocked);
+  $("rewardEyebrow").textContent = unlocked ? "Unlocked · Not for sale" : "The reward · Not for sale";
+  $("rewardNote").textContent = unlocked
+    ? "You collected all eight. Show this screen at a participating stop to claim it."
+    : `Collect all eight to unlock it. ${left} ${left === 1 ? "stop" : "stops"} to go.`;
+}
+
+function renderHero() {
+  if (!scanned) return;
+  const n = STOPS.indexOf(scanned) + 1;
+  const got = have.has(scanned.id);
+  $("heroImg").src = `images/${scanned.id}.webp`;
+  $("heroImg").alt = `${scanned.name} coaster`;
+  $("heroRing").classList.toggle("plain", !got);
+  $("heroEyebrow").textContent = `Stop ${n} of ${STOPS.length}${got ? " · Collected" : ""}`;
+  $("heroTitle").textContent = `You’ve got ${scanned.full}.`;
+  $("heroLede").textContent = "Eight stops, eight coasters, each sold only at its own stop. Collect all eight and the Mobile skyline coaster is yours.";
+  const btn = $("stampBtn");
+  btn.hidden = false;
+  btn.disabled = got;
+  $("stampLabel").textContent = got ? "Stamped in your passport" : "Stamp my passport";
+}
+
+function render() { renderStops(); renderHero(); }
+
+async function stamp() {
+  if (!scanned) return;
+  if (api) {
+    try { have = new Set(await api.stamp(scanned.id, scanCode)); }
+    catch (e) { $("phoneNotice").textContent = "That stamp didn’t go through. Check your connection and try again."; return; }
+  } else {
+    have.add(scanned.id);                       // preview only: not saved
+  }
+  render();
+}
+
+let codeSent = false;
+async function phoneSubmit(ev) {
+  ev.preventDefault();
+  const phone = $("phone").value.trim();
+  const note = $("phoneNotice");
+  if (!api) { note.textContent = "Sign-in turns on when the passport service is connected."; return; }
+  if (!codeSent) {
+    if (phone.replace(/\D/g, "").length < 10) { note.textContent = "Enter a 10-digit mobile number."; return; }
+    try {
+      await api.sendCode(phone);
+      codeSent = true;
+      $("code").hidden = false; $("codeLabel").hidden = false; $("code").focus();
+      $("phoneBtn").textContent = "Sign in";
+      note.textContent = `We texted a code to ${phone}.`;
+    } catch (e) { note.textContent = "We couldn’t send a code. Check the number and try again."; }
+  } else {
+    try {
+      have = new Set(await api.verify(phone, $("code").value.trim()));
+      note.textContent = "Signed in. Your stamps are saved.";
+      render();
+    } catch (e) { note.textContent = "That code didn’t match. Check the text and try again."; }
+  }
+}
+
+async function init() {
+  renderSponsors();
+  $("customLink").href = CONFIG.customGoodsUrl;
+  $("mapLink").href = CONFIG.mapUrl;
+  $("stampBtn").addEventListener("click", stamp);
+  $("phoneForm").addEventListener("submit", phoneSubmit);
+  if (api) {
+    try { have = new Set(await api.load()); } catch (e) { /* show empty passport */ }
+  } else {
+    $("previewBar").hidden = false;
+  }
+  render();
+}
+init();
+</script>
+</body>
+</html>
